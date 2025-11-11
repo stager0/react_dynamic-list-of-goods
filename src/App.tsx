@@ -14,9 +14,14 @@ export const App: React.FC = () => {
     }
 
     const loadGoods = async () => {
-      const goodsArr = await func();
+      try {
+        const goodsArr = await func();
 
-      setGoods(goodsArr);
+        setGoods(goodsArr);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      }
     };
 
     loadGoods();
